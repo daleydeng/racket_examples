@@ -1,4 +1,6 @@
-#lang scheme
+#lang racket
+
+(require racket/trace)
 
 (define (=number? x num)
     (and (number? x) (= x num)))
@@ -24,5 +26,5 @@
           ((sum-expr? expr) (deriv-sum (cdr expr) var))
           (else (raise "unsupported expr" expr))))
 
-(define ret (deriv '(+ x 3) 'x))
-(display ret)
+(trace deriv)
+(display (deriv '(+ x 3) 'x))
