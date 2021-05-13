@@ -22,7 +22,7 @@
 
 (define t (attach-tag 'a 1))
 (check-equal? (get-tag t) 'a)
-(check-equal? (get-contents t) 1)
+(check-equal? (get-content t) 1)
 
 (check-equal? (apply-generic 'add (tag-number 1) (tag-number 2))
               (tag-number 3))

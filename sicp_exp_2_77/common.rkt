@@ -4,7 +4,7 @@
  "op_table.rkt"
  )
 
-(provide attach-tag get-tag get-contents apply-generic)
+(provide attach-tag get-tag get-content apply-generic)
 
 (define (attach-tag tag contents) (cons tag contents))
 
@@ -13,7 +13,7 @@
       (car data)
       (error "BAD TAG FORMAT: TAG")))
 
-(define (get-contents data)
+(define (get-content data)
   (if (pair? data)
       (cdr data)
       (error "BAD TAG FORMAT: CONTENTS")))
@@ -23,6 +23,6 @@
          [proc (op-get op tags)]
          )
     (if proc
-        (apply proc (map get-contents args))
+        (apply proc args)
         (error "apply-generic::No methods for these types" (list op tags))
         )))
